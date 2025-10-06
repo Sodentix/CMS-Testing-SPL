@@ -6,8 +6,8 @@ export async function fetchModels(quantity = 10) {
     const models = data.data.map(person => {
       return {
         modelName: `${person.firstname} ${person.lastname}`,
-        modelDescription: "lorem ipsum",
-        imageUrl: `https://picsum.photos/200/300?random=${Math.floor(Math.random() * 10000)}`
+        modelDescription: "Lorem ipsum dolor sit amet consectetur. Quis vitae ut quam urna ut turpis. Nunc imperdiet augue dis suspendisse.",
+        imageUrl: `https://picsum.photos/294/300?random=${Math.floor(Math.random() * 10000)}`
       };
     });
 

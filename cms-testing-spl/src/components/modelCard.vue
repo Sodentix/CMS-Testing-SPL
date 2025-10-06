@@ -27,21 +27,36 @@ defineProps({
   background-color: rgba(217, 217, 217, 1);
   display: flex;
   flex-direction: column;
-  width: 294;
-  height: 486;
-  opacity: 1;
+  width: 294px;
+  height: 486px;
   border-radius: 10px;
-  align-items: center;
 }
 
 .modelNameClass {
   color: rgba(0, 0, 0, 1);
-  padding: 0.1rem 1rem 0 1rem;
-  text-align: center;
+  padding: 1rem 0.1rem 0 1rem;
+  text-align: left;
+  font-family: JetBrains Mono;
+  font-weight: 800;
+  font-style: ExtraBold;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: 0%;
 }
 
 .modelDescriptionClass {
   color: rgba(0, 0, 0, 1);
-  text-align: center;
+  padding: 1rem 0.1rem 0 1rem;
+  text-align: left;
+  font-family: JetBrains Mono;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+img {
+  border-radius: 10px;
 }
 </style>

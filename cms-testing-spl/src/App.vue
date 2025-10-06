@@ -1,47 +1,68 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+import modelCard from "@/components/modelCard.vue"; 
+import { fetchModels } from "@/utils/fetchModels.js";
+
+export default {
+  components: {
+    modelCard, 
+  },
+  data() {
+    return {
+      models: []
+    };
+  },
+  async mounted() {
+    this.models = await fetchModels(7);
+  },
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div>
+    <div id="headlineContainer">
+      <h1 id="headline">HTL Dornbirn 5bWI</h1>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <div class="cardWrapper">
+    <model-card
+      v-for="(x, index) in models"
+      :key="index"
+      :modelName="x.modelName"
+      :modelDescription="x.modelDescription"
+      :image="x.imageUrl"
+    />
+    </div>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<style>
+body {
+  background-color: rgba(45, 43, 3, 1);
 }
 </style>
+
+<style scoped>
+#headline {
+  font-family: Jaro;
+  color: white;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 80px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+#headlineContainer {
+  display: flex;
+  justify-content: flex-end; 
+  margin: 0 2rem;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+</style>
+
